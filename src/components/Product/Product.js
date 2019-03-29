@@ -19,8 +19,8 @@ class Product extends Component {
     return (
       <div className="product">
           <img src={this.props.product.img} alt=""/>
-          {this.props.product.name}
-          {this.props.product.price}
+          <h5>{this.props.product.name}</h5>
+          <h5>${this.props.product.price}</h5>
           <div className='edit-delete-button'>
             <button className="button_d" onClick={this.onDeleteClick}>Delete</button>
             <button onClick={this.props.onEditClick}>Edit</button>

@@ -37,6 +37,10 @@
   top: 9px
 }
 
+.product h5 {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .edit-delete-button button {
   background: #3AD886;
   border: none;

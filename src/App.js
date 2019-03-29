@@ -10,8 +10,17 @@ class App extends Component {
     super();
 
     this.state = {
-      inventory: []
+      inventory: [],
+      id: 0,
+      editing: false
     }
+  }
+
+  onEditClick = (index) => {
+    this.setState({
+      editing: true,
+      // id: this.state.inventory[index].id
+    })
   }
 
   componentDidMount = () => {
@@ -22,14 +31,14 @@ class App extends Component {
     }).catch(err => console.log('error on mount', err))
   }
 
-
   render() {
-    console.log(this.state.inventory)
     return (
       <div>
-        <Dashboard inventory={this.state.inventory}/>
-        <Form getMethod={this.componentDidMount}/>
         <Header />
+        <div className="main_body">
+          <Dashboard getMethod={this.componentDidMount} inventory={this.state.inventory} onEditClick={this.onEditClick}/>
+          <Form getMethod={this.componentDidMount} selected={this.state.selected} editing={this.state.editing}/>
+        </div>
         
       </div>
     );

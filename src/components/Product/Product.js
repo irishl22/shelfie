@@ -5,16 +5,26 @@ class Product extends Component {
         super(props)
 
         this.state = {
-        
-        }
-        
+    
+        } 
     }
+
+ 
+
+    onDeleteClick = () => {
+      this.props.deleteProductFn(this.props.product.id)
+    }
+    
   render() {
     return (
-      <div>
-          <img src={this.props.product.img} alt="" width={30}/>
+      <div className="product">
+          <img src={this.props.product.img} alt=""/>
           {this.props.product.name}
           {this.props.product.price}
+          <div className='edit-delete-button'>
+            <button className="button_d" onClick={this.onDeleteClick}>Delete</button>
+            <button onClick={this.props.onEditClick}>Edit</button>
+          </div>
       </div>
     )
   }
